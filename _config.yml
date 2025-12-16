@@ -19,8 +19,9 @@ color:
 
 # conference data
 background-image: img/grebovka-main-staircase.jpg
-directions-link: http://directions.link.com
-map-embed: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.323048471302!2d-118.12734598467776!3d34.13807638058268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c4a7f5e60b13%3A0xc12af3fcb43bc03d!2sRamo+Auditorium!5e0!3m2!1sen!2sus!4v1546639172046
+directions-link: https://maps.app.goo.gl/ybyE1QSbvFW2YqJUA
+map-embed: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1280.4528759975015!2d14.443626852721382!3d50.0693266785464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9480e85465a5%3A0xcf185de1301fe58f!2sGr%C3%B6be%20Villa!5e0!3m2!1sen!2scz!4v1765887148317!5m2!1sen!2scz
+
 organizer-email : organizer@email.com
 registration-page : http://registration.com
 upload-form: http://paperupload.com
