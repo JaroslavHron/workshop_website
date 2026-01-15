@@ -1,3 +1,7 @@
+body {
+  font-size: 100%; /* e.g., 112.5% of default 16px */
+}
+
 .navbar-fixed {
   position: absolute;
   z-index:999999999;
@@ -17,6 +21,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  background-color: rgba(255,255,255,0.2);
+  background-blend-mode: soft-light;
   width: 100%;
   /*position: relative;*/
   top: 0;
@@ -48,7 +54,6 @@
 
 #main-title{
   padding:10px;
-  font-size: 12px;
   font-weight: bold;
   color: white;
   background-color: {{site.color.accent}};
@@ -56,34 +61,34 @@
 
 #secondary-title{
   padding:10px;
+  color: white;
   background-color: {{site.color.primary-dark}};
 }
 
 #secondary-title-text{
-  color:#ffffff;
-  font-size:11px;
   line-height: normal;
 }
 
 .banner-heading{
+  font-size: 200%;
   text-align:center;
-  font-size: 42px;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.5);
   padding: 20px;
   font-weight:bold;
   color:{{site.color.title}};
 }
 
 .banner-subheading{
+  font-size: 140%;
   text-align:center;
+  padding: 20px;
   font-weight:bold;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(255,255,255,0.5);
   color: {{site.color.title}};
 }
 
 .sponsor-row{
   background-color: {{site.color.primary-dark}};
-  font-size: 25px;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -105,7 +110,6 @@
 
 .section-gray-body{
   color: black;
-  font-size:15px;
 }
 
 .section-white-section{
@@ -119,7 +123,6 @@
 
 .section-white-body{
   color: black;
-  font-size:15px;
 }
 
 .card-title{
@@ -132,13 +135,13 @@
 }
 
 .portrait-img{
-    width: 10px;
+    width: 100px;
     height: 180px;
     object-fit: cover;
 }
 
 .carousel .carousel-item {
-  width:320px !important;
+  widthh:320px !important;
 }
 
 .google-maps {
@@ -163,7 +166,6 @@
 .schedule tbody th {
   color: #a9b2b9;
   /*padding-top: 40px;  */
-  font-size: 10px;
   /*font-weight: 400;*/
   /*text-transform: uppercase;*/
   /*vertical-align: top;*/
@@ -179,7 +181,6 @@
 .papers tbody th {
   color: #a9b2b9;
   /*padding-top: 40px;  */
-  font-size: 10px;
   /*font-weight: 400;*/
   /*text-transform: uppercase;*/
   /*vertical-align: top;*/

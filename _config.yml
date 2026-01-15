@@ -6,25 +6,25 @@ baseurl: ''
 
 conference_title: "Modeling blood flow in the cardiovascular system and artificial devices - recent developments and challenges
 "
-conference_title_short: "M4C"
+conference_title_short: "Math4Cardio"
 year: "2026"
-infoline_text: "Thanks for attending M4C 2026."
+infoline_text: "Thanks for attending Math4Cardio 2026."
 
 # Color settings
 color:
   primary-dark: '#A0A0A0'
-  title: '#E0E0E0'
+  title: '#000000'
   links: '#0000FF'
   accent: '#FF0000'
 
 # conference data
-background-image: img/grebovka-main-staircase.jpg
+background-image: img/grebovka-vila_2.jpg #grebovka-main-staircase.jpg
 directions-link: https://maps.app.goo.gl/ybyE1QSbvFW2YqJUA
 map-embed: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1280.4528759975015!2d14.443626852721382!3d50.0693266785464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9480e85465a5%3A0xcf185de1301fe58f!2sGr%C3%B6be%20Villa!5e0!3m2!1sen!2scz!4v1765887148317!5m2!1sen!2scz
 
-organizer-email : organizer@email.com
-registration-page : http://registration.com
-upload-form: http://paperupload.com
+organizer-email : jaroslav.hron@matfyz.cuni.cz
+registration-page : registration
+#https://forms.office.com/e/6AyNkxUDgT
 
 collections:
   - invited_speakers

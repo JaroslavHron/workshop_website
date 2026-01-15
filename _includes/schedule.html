@@ -12,7 +12,7 @@
                   <tr>
                     <th scope="row"><time>{{session.time}}</time></th>
                     <td>
-                    <h5>{{session.title}}</h5>
+                    <h6>{{session.title}}</h6>
 	                  {% if speakers_size > 0 %}
                         {% for speaker in session_speakers %}
                           <b><a href="#" data-target={{speaker.id}} class="modal-trigger">{{speaker.name}}</a></b>{% if {{speaker.talk_title}} %}: <i>{{speaker.talk_title}}</i> {% endif %}<br/>

@@ -1,0 +1,27 @@
+<!-- Organizers section -->
+      <div class="section scrollspy section-gray-section" id="organizers">
+        <div class="container">
+          <h4 class="center-align section-gray-header">Conference Organizers</h4>
+
+          <div class="row">
+            <div class="col s12 m12 l12 section-gray-body">
+              <p class="center">For any questions about the symposium or sponsorship opportunities, please contact <a href="mailto:{{site.organizer-email}}">{{site.organizer-email}}</a>.
+              </p>
+            </div>
+          </div>
+          
+          <ul class="collection with-header">
+            {% assign organizers_sorted = site.organizers | sort:"order_number" %}            
+            {% for organizers in organizers_sorted %}
+
+            <a href="{{organizers.link}}">
+              <div class="chip">
+                <img src="{{organizers.image}}">
+                {{organizers.name}} ({{organizers.title}})
+            </div>
+            </a>
+            {% endfor %}
+          </ul>
+          
+      </div> 
+    </div>

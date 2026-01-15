@@ -1,0 +1,68 @@
+// AKTUALNI STAV JE V DENIKU
+
+// kazdorocni opraseni:
+// 0. vyprazdnit adresar /var/www/data/essam-masc/gp_sign/
+// 1. gp_confer.php      - nastavit promenou MASC podle konference (viz komentar tam)
+// 2. gp_order.php       - upravit podle potreby CISLO_AKCE
+//                       - upravit podle potreby ostrou castku CASTKA
+//                       - prohodit komentare u CASTKA (11Kc pouzivam na test moji kartou)
+// 3. vyzkouset ostrou platbu kartou (prozatim vzdy proslo)
+// 4. tp_order.php       - vratit komentare u CASTKA (aby se pouzilo spravne cislo)
+// 5. zkontrolovat maily (pocatek a konec platby)
+// 6. zkontrolovat vypis plateb (gp_platby.php -  mel by tam byt radek s 0/OK)    
+
+    1. Uzivatelske soubory (editovatelne) a adresare:
+
+gp_payment.html     - uzivatelsky formular pro zadani identifikace platby 
+                      tento soubor lze podle potreby prejmenovat
+gp_order.php        - zpracovani uzivatelskeho pozadavku 
+                      a po potvrzeni uzivatelem odeslani dat do banky
+gp_response.php     - zpracovani odpovedi z banky
+gp_sign/            - adresar se zaznamem pozadavku uzivatele a zpracovanim z banky
+
+
+    2. Soubory a adresare potrebne pro fungovani:
+
+gp_params.php       - soubor s konfiguracnimi parametry (prihlasovani,
+                              priznaky testovani a debugu,...)
+                      a obsahuje funkci evidence plateb (soubor, mail)
+gp_signature.php    - trida pro generovani a verifikovani podpisu
+
+Nasledujici souboru jsou v datovem adresari serveru /var/www/data/essam-masc:
+gp_keys/gpe.signing_prod.pem          - verejny klic banky pro produkcni prostredi
+gp_keys/gpe.signing_test.pem          - verejny klic banky pro testovaci prostredi
+gp_keys/essam-masc-test.cer           - verejny klic pro testovaci prostredi poslany bance
+gp_keys/essam-masc-test_cer.pem       - verejny klic pro testovaci prostredi v pem tvaru
+gp_keys/essam-masc-test_key.pem	      - privatni klic pro testovaci prostredi v pem tvaru
+gp_keys/essam-masc-test.[ks|pem|pfx]  - klic testovaciho prostredi generovany utilitama
+/var/www/web/essam-masc/gp_response.php - odkaz https://essam-masc.karlin.mff.cuni.cz/gp_response.php je 
+          natvrdo zadratovany v platebni brane - na ne chodi odkazy o (ne)provedeni platby
+
+    3. Logika volani
+
+// 1. krok - gp_payment.html - uzivatelsky formular (s akci gp_order.php)
+//           Odesilana data  $_POST 
+//              name     - jmeno
+//              regemail - registracni email
+//              price    - castka
+//              VATRN    - fakturacni adresa
+
+// 2. krok - gp_order.php    - skript zpracuje data z formulare *payment.html (viz vys),
+//           generuje podpis, ulozi si data, odesle kontrolni maily
+//           generuje formular pro potvrzeni presmerovani
+//           na platebni branu s navratovou adresou https://essam-masc.karlin.mff.cuni.cz/gp_response.php 
+//
+// 3. krok - po provedene platbe v bance je volan skript https://essam-masc.karlin.mff.cuni.cz/gp_response.php,
+//           ktery se snazi z cisla platby dohledat, ktery server pozadavek vznesl a podle toho presmeruje odpoved
+//           na lokalni gp_response.php, ktery poznamena, ze platba probehla a zobrazi uzivateli, co je potreba
+//
+// 4. krok - gp_response.php podle typu odpovedi vola bud ihtml/platbaOK.html nebo ihtml/platbaKO.html 
+//          (ale editaci gp_response.php lze odpoved nasmerovat na gp_platbaOK.php nebo gp_platbaOK.php)
+
+# prace s klici
+- overeni, ze klic a certifikat patri k sobe:
+ocer () { openssl x509 -noout -modulus -in $1 | md5sum; }
+okey () { openssl rsa -noout -modulus -in $1 | md5sum; }
+
+openssl rsa -noout -modulus -in  essam-masc-prod-key.pem | openssl md5
+openssl x509 -noout -modulus -in essam-masc-prod_cer.pem | openssl md5; 

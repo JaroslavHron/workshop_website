@@ -1,0 +1,126 @@
+<div id="register" class="register">
+  <div class="container" style="text-align:right">
+    
+    <p>
+      The deadline for registration and submission of abstracts is <b>April&nbsp;30, 2025</b>.
+      The registration can be however closed earlier, if the maximal capacity of 60 participants is reached.
+    </p>
+
+    <div class="row">
+      <form action="submit.php" method="post" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="first_name" type="text" name="first">
+            <label for="first_name">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" name="last">
+            <label for="last_name">Last Name</label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input id="email" type="text" name="email">
+            <label for="email">Email</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <select multiple>
+              <option value="" disabled selected>
+                Accomodation:
+              </option>
+              <option value="1">Monday</option>
+              <option value="2">Tuesday</option>
+              <option value="3">Wdnesday</option>
+            </select>
+            <label>Select the days you wish to stay</label>
+          </div>
+        </div>
+
+        <br>
+        
+        <div class="row">
+          <div class="col s12">
+            Accomodation:
+              <label>
+                <input type="checkbox" class="filled-in"
+                       checked="checked" name="arrival">
+              <span>Monday </span>
+              </label>
+   
+              <label>
+                <input type="checkbox" class="filled-in"
+                checked="checked">
+                <span>Tuesday</span>
+              </label>
+
+              <label>
+                <input type="checkbox" class="filled-in"
+             checked="checked">
+                <span>Wednesday</span>
+              </label>
+          </div>
+          
+
+<div class="input-field">
+  <select id="items" multiple>
+    <option value="" disabled>Choose items</option>
+    <option value="10">Item A (10)</option>
+    <option value="25">Item B (25)</option>
+    <option value="40">Item C (40)</option>
+    <option value="5">Item D (5)</option>
+  </select>
+  <label>Select items</label>
+</div>
+
+<div class="card-panel teal lighten-5">
+  <strong>Total:</strong>
+  <span id="total">0</span>
+</div>
+
+
+</form>
+</div>
+</div>
+</div>
+
+<!--
+<script>
+  $(document).ready(function() {
+      $('select').material_select();
+  });
+</script>
+!-->
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      const select = document.getElementById('items');
+      const totalEl = document.getElementById('total');
+
+      // Initialize Materialize select
+      M.FormSelect.init(select);
+
+      function updateTotal() {
+          let sum = 0;
+          Array.from(select.selectedOptions).forEach(opt => {
+              sum += Number(opt.value);
+          });
+          totalEl.textContent = sum;
+      }
+
+      select.addEventListener('change', updateTotal);
+  });
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function
+                            () {
+                                var elems = document.querySelectorAll('select');
+                                M.FormSelect.init(elems);
+                            });
+</script>
