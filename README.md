@@ -33,3 +33,7 @@ Invited speakers, accepted contributions, organizers, advisors, and schedule ite
 For configuring the remaining content (sponsors, text changes, etc), manually edit the files in ```_includes```.
 
 
+```
+jekyll build -b https://www.karlin.mff.cuni.cz/~hron/BW/v2 -V
+rsync -avzP --delete _site/* hill:~/public_html/BW/v2/
+```
